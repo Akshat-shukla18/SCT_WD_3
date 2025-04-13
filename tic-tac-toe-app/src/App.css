@@ -1,0 +1,104 @@
+.container {
+  text-align: center;
+  padding: 20px;
+  background: #1a1a2e; /* Dark theme background */
+  min-height: 100vh;
+  color: #e5e5e5;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.8em;
+  color: #ff4d4d; /* Vibrant red for title */
+  text-shadow: 3px 3px #4a4a4a;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 1.3em;
+  color: #ffd700; /* Gold for player text */
+  margin-bottom: 10px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 8px;
+  margin: 20px auto;
+  max-width: 368px;
+}
+
+.cell {
+  width: 120px;
+  height: 120px;
+  background: #16213e; /* Dark cell background */
+  border: 3px solid #0f3460;
+  font-size: 2.5em;
+  color: #ff6f61; /* Coral for X/O */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.cell:hover {
+  background: #1a5c8d; /* Lighter hover effect */
+}
+
+.cell:active {
+  transform: scale(0.95);
+}
+
+.x-highlight:not(:empty),
+.o-highlight:not(:empty) {
+  animation: blink 1s infinite;
+}
+
+.x-highlight:empty {
+  background: #ff6f61; /* Light up for X turn */
+  opacity: 0.7;
+}
+
+.o-highlight:empty {
+  background: #4ecdc4; /* Light up for O turn */
+  opacity: 0.7;
+}
+
+@keyframes blink {
+  50% { opacity: 0.5; }
+}
+
+.reset {
+  padding: 12px 25px;
+  font-size: 1.2em;
+  background: #ffd700; /* Gold reset button */
+  color: #1a1a2e;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:0.3s;
+}
+
+.reset:hover {
+  background: #d1a677; /* Darker gold on hover */
+}
+
+.winner-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ff4d4d; /* Red popup */
+  padding: 30px;
+  border-radius: 15px;
+  font-size: 2.5em; /* Larger text */
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 77, 77, 0.7);
+  animation: pop 0.5s ease-out;
+  z-index: 10;
+}
+
+@keyframes pop {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
